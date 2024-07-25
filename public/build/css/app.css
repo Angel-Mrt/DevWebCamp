@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -324,6 +325,12 @@ img {
   height: auto;
 }
 
+h1, h2, h3 {
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  margin: 2rem 0;
+}
+
 h1 {
   font-size: 4rem;
 }
@@ -338,5 +345,85 @@ h3 {
 
 .text-center {
   text-align: center;
+}
+
+[class$=__heading] {
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  margin: 2rem 0;
+  margin: 6rem 0 3rem 0;
+  text-align: center;
+}
+
+.auth {
+  width: min(95%, 60rem);
+  margin: 0 auto;
+}
+
+.auth__texto {
+  font-size: 2rem;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+.formulario__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.formulario__label {
+  display: block;
+  font-size: 1.8rem;
+  color: rgba(26, 27, 21, 0.8);
+}
+.formulario__input {
+  padding: 1rem;
+  border: 1px solid #b1c7dd;
+  border-radius: 0.8rem;
+}
+.formulario__submit {
+  background-color: #007df4;
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.8rem;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin: 1.5rem 0;
+  /* Estilos del botón al hacer clic */
+  width: auto;
+  align-self: flex-start;
+}
+@media (min-width: 768px) {
+  .formulario__submit {
+    width: auto;
+  }
+}
+.formulario__submit:hover {
+  background-color: #0063c1;
+  cursor: pointer;
+}
+.formulario__submit:active {
+  transform: translateY(8px); /* Mover el botón ligeramente hacia abajo al hacer clic */
+  box-shadow: none; /* Quitar la sombra al hacer clic */
+}
+
+.acciones {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.acciones__enlace {
+  color: #1a1b15;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 /*# sourceMappingURL=app.css.map */
