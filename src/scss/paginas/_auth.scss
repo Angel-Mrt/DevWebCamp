@@ -2,6 +2,7 @@
 @use 'base/variables' as v;
 .auth {
     @include m.contenedor-sm;
+    margin: 4rem auto;
 }
 
 .auth__texto {
