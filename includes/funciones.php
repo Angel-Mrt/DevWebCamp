@@ -10,3 +10,26 @@ function s($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }
+function mostrarNotificacion($resultado)
+{
+    $mensaje = '';
+
+    switch ($resultado) {
+        case 1:
+            $mensaje = '¡¡Creado Correctamente!!';
+            break;
+        case 2:
+            $mensaje = '¡¡Actualizado Correctamente!!';
+            break;
+        case 3:
+            $mensaje = '¡¡Eliminado Correctamente!!';
+            break;
+        case 4:
+            $mensaje = '¡¡No Se Pudo Eliminar!!';
+            break;
+        default:
+            $mensaje = false;
+            break;
+    }
+    return $mensaje;
+}
