@@ -26,17 +26,7 @@
         }
     }
     &__enlace{
-        color: v.$blanco;
-        font-size: 1.4rem;
-        text-transform: uppercase;
-        font-weight: v.$bold;
-
-        &:hover{
-            color: v.$azul;
-            font-size: 1.5rem;
-            font-weight: 900;
-        }
-
+        @include m.enlace;
     }
     &__contenido{
         padding-top: 10rem;
