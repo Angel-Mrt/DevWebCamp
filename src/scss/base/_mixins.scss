@@ -171,6 +171,9 @@
         font-size: 1.4rem;
         color: v.$blanco;
         font-weight: v.$bold;
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
 
