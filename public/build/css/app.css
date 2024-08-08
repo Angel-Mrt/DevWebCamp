@@ -1059,4 +1059,37 @@ h3 {
     display: inline;
   }
 }
+
+.listado-ponentes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+.listado-ponentes__ponente, .listado-ponentes__no-resultado, .listado-ponentes__ponente--seleccionado {
+  color: #007df4;
+  border: 1px solid #007df4;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  text-align: center;
+  font-weight: 700;
+}
+.listado-ponentes__ponente:hover, .listado-ponentes__no-resultado:hover, .listado-ponentes__ponente--seleccionado:hover {
+  cursor: pointer;
+}
+.listado-ponentes__ponente--seleccionado {
+  background-color: #007df4;
+  color: #FFFFFF;
+}
+.listado-ponentes__no-resultado {
+  border: 1px solid #64748B;
+  background-color: #FFFFFF;
+  color: #64748B;
+  opacity: 0.5;
+}
+.listado-ponentes__no-resultado:hover {
+  cursor: no-drop;
+}
 /*# sourceMappingURL=app.css.map */

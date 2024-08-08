@@ -5,7 +5,7 @@ namespace Model;
 class Evento extends ActiveRecord
 {
     protected static $tabla = 'eventos';
-    protected static $columnas = ['id', 'nombre', 'descripcion', 'disponibles', 'categoria_id', 'dia_id', 'hora_id', 'ponente_id'];
+    protected static $columnasDB = ['id', 'nombre', 'descripcion', 'disponibles', 'categoria_id', 'dia_id', 'hora_id', 'ponente_id'];
 
     public $id;
     public $nombre;
@@ -15,6 +15,7 @@ class Evento extends ActiveRecord
     public $dia_id;
     public $hora_id;
     public $ponente_id;
+    public $ponente_nombre;
 
     public function __construct($args = [])
     {
@@ -26,6 +27,7 @@ class Evento extends ActiveRecord
         $this->dia_id = $args['dia_id'] ?? '';
         $this->hora_id = $args['hora_id'] ?? '';
         $this->ponente_id = $args['ponente_id'] ?? '';
+        $this->ponente_nombre = $args['ponente_nombre'] ?? '';
     }
     // Mensajes de validación para la creación de un evento
     public function validar()
@@ -49,6 +51,9 @@ class Evento extends ActiveRecord
             self::$alertas['error'][] = 'Añade una cantidad de Lugares Disponibles';
         }
         if (!$this->ponente_id || !filter_var($this->ponente_id, FILTER_VALIDATE_INT)) {
+            self::$alertas['error'][] = 'Selecciona la persona encargada del evento';
+        }
+        if (!$this->ponente_nombre) {
             self::$alertas['error'][] = 'Selecciona la persona encargada del evento';
         }
 

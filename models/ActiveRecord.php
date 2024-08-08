@@ -161,7 +161,7 @@ class ActiveRecord
     {
         $query = "SELECT * FROM " . static::$tabla . " WHERE ";
         foreach ($array as $key => $value) {
-            if($key == array_key_last($array)){
+            if ($key == array_key_last($array)) {
                 $query .= " {$key} = '{$value}'";
             } else {
                 $query .= " {$key} = '{$value}' AND";
@@ -193,7 +193,7 @@ class ActiveRecord
         $query .= join("', '", array_values($atributos));
         $query .= " ') ";
 
-        // debuguear($query); // Descomentar si no te funciona algo
+        //debuguear($query); // Descomentar si no te funciona algo
 
         // Resultado de la consulta
         $resultado = self::$db->query($query);

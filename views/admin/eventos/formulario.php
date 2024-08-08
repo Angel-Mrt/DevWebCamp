@@ -43,7 +43,11 @@
     <legend class="formulario__legend">Informacion Extra</legend>
     <div class="formulario__campo">
         <label for="ponentes" class="formulario__label">Ponentes</label>
-        <input type="text" class="formulario__input" id="ponentes" placeholder="Buscar Ponente">
+        <input type="text" class="formulario__input" id="ponentes" name="ponente_nombre" placeholder="Buscar Ponente" value="<?php echo $evento->ponente_nombre ?? ''; ?>">
+        <ul class="listado-ponentes" id="listado-ponentes">
+
+        </ul>
+        <input type="hidden" name="ponente_id" value="<?php echo $evento->ponente_id ?? ''; ?>">
     </div>
     <div class="formulario__campo">
         <label for="disponibles" class="formulario__label">Lugares Disponibles</label>
