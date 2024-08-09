@@ -33,8 +33,12 @@
             }
         }
         &--actual{
-            color: v.$gris;
+            color: v.$blanco;
+            background-color: v.$azul;
             font-weight: v.$bold;
+            border: 1px solid v.$azul;
+            border-radius: .6rem;
+            padding: .5rem;
             display: none;
             @include m.tablet {
                 display: inline;

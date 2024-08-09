@@ -17,6 +17,14 @@ function is_auth() : bool {
     session_start();
     return isset($_SESSION['nombre']) && !empty($_SESSION);
 }
+function iniciarSesion()
+{
+    // Verifica si la sesión no está iniciada
+    if (!isset($_SESSION)) {
+        // Inicia la sesión
+        session_start();
+    }
+}
 function is_admin(): bool
 {
     session_start();

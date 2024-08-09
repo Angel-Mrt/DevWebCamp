@@ -1050,8 +1050,12 @@ h3 {
   }
 }
 .paginacion__enlace--actual {
-  color: #64748B;
+  color: #FFFFFF;
+  background-color: #007df4;
   font-weight: 700;
+  border: 1px solid #007df4;
+  border-radius: 0.6rem;
+  padding: 0.5rem;
   display: none;
 }
 @media (min-width: 768px) {

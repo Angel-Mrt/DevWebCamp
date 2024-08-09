@@ -12,9 +12,16 @@ class APIPonentes
 
         $ponentes = Ponente::all('ASC');
         echo json_encode($ponentes);
+    }
+    public static function ponente(){
+        $id = $_GET['id'];
+        $id = filter_var($id, FILTER_VALIDATE_INT);
 
-        //consultar en la BD
-        // $eventos = EventoHorario::whereArray(['dia_id' => $dia_id, 'categoria_id' => $categoria_id]) ?? [];
-        // echo json_encode($eventos);
+        if(!$id || $id < 1){
+            echo json_encode([]);
+            return;
+        }
+        $ponente = Ponente::find($id);
+        echo json_encode($ponente, JSON_UNESCAPED_SLASHES);
     }
 }
