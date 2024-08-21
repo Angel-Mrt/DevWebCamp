@@ -471,8 +471,61 @@ h3 {
   color: #64748B;
   margin: 3rem 0 1rem 0;
 }
-.eventos__workshops .eventos__heading {
+.eventos--workshops .eventos__heading {
   color: #00c8c2;
+}
+.eventos--workshops .evento__informacion {
+  background-color: #00c8c2;
+}
+.eventos--workshops .evento__informacion:hover {
+  background-color: #009591;
+}
+.eventos .swiper-button-prev,
+.eventos .swiper-button-next {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.evento__hora {
+  font-weight: 700;
+}
+.evento__nombre {
+  font-size: 2rem;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.evento__informacion {
+  padding: 2rem;
+  border-radius: 0.8rem;
+  background-color: #007df4;
+  color: #FFFFFF;
+  transition: 300ms background-color ease;
+}
+.evento__informacion:hover {
+  background-color: #0063c1;
+}
+.evento__introduccion {
+  font-size: 1.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.evento__autor-info {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.evento__imagen-autor {
+  width: 5rem;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+.evento__autor-nombre {
+  font-weight: 700;
 }
 
 .formulario {
