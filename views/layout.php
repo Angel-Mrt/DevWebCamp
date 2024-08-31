@@ -27,7 +27,7 @@
         function initializeAOS() {
             const anchoDisplay = window.innerWidth;
 
-            if (anchoDisplay > 768) { // Ajusta el ancho según tus necesidades
+            if (anchoDisplay >= 768) { // Ajusta el ancho según tus necesidades
                 AOS.init({
                     duration: 1200,
                 });

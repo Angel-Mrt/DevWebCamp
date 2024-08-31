@@ -12,6 +12,13 @@
             align-items: flex-start;
         }
     }
+    &__submit{
+        @include m.boton(v.$azul, v.$blanco);
+        @include m.tablet {
+            display: inline-block;
+            width: 100%;
+        }
+    }
 }
 .paquete{
     @include m.card;
@@ -34,7 +41,7 @@
     }
     &__precio{
         font-size: 6rem;
-        margin: 3rem 0 0 0;
+        margin: 3rem 0;
         color: v.$azul;
         font-weight: v.$black;
         text-align: center;

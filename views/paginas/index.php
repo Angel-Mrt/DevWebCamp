@@ -32,7 +32,7 @@ include_once __DIR__ . '/conferencias.php';
 
     <div class="speakers__grid">
         <?php foreach ($ponentes as $ponente) { ?>
-            <div <?php aos_animacion(); ?> data-aos-offset="-420" class="speaker">
+            <div <?php aos_animacion(); ?> data-aos-offset="-450" class="speaker">
                 <picture>
                     <source srcset="img/speakers/<?php echo  $ponente->imagen; ?>.webp" type="image/webp">
                     <source srcset="img/speakers/<?php echo  $ponente->imagen; ?>.png" type="image/png">
@@ -106,17 +106,17 @@ include_once __DIR__ . '/conferencias.php';
     <p class="boletos__descripcion">Precios para DevWebCamp</p>
 
     <div class="boletos__grid">
-        <div <?php aos_animacion(); ?> data-aos-offset="-1050" data-aos-once="true"  class="boleto boleto--presencial">
+        <div <?php aos_animacion(); ?> data-aos-offset="-1050"  class="boleto boleto--presencial">
             <h4 class="boleto__logo">&#60;DevWebCamp/></h4>
             <p class="boleto__plan">Presencial</p>
             <p class="boleto__precio">$199</p>
         </div>
-        <div <?php aos_animacion(); ?> data-aos-offset="-1050" data-aos-once="true"  class="boleto boleto--virtual">
+        <div <?php aos_animacion(); ?> data-aos-offset="-1050"  class="boleto boleto--virtual">
             <h4 class="boleto__logo">&#60;DevWebCamp/></h4>
             <p class="boleto__plan">Virtual</p>
             <p class="boleto__precio">$49</p>
         </div>
-        <div <?php aos_animacion(); ?> data-aos-offset="-1050" data-aos-once="true"  class="boleto boleto--gratis">
+        <div <?php aos_animacion(); ?> data-aos-offset="-1050"  class="boleto boleto--gratis">
             <h4 class="boleto__logo">&#60;DevWebCamp/></h4>
             <p class="boleto__plan">Gratis</p>
             <p class="boleto__precio">Gratis - $0</p>
