@@ -7,6 +7,7 @@ use Model\Dia;
 use Model\Evento;
 use Model\Hora;
 use Model\Ponente;
+use Model\Regalo;
 use MVC\Router;
 
 class PaginasController{
@@ -91,6 +92,8 @@ class PaginasController{
                 $eventos_formateados['workshops_s'][] = $evento;
             }
         }
+        
+
         $router->render('paginas/conferencias', [
             'titulo' => 'Conferencias & Workshops',
             'eventos' => $eventos_formateados
