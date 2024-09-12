@@ -1,0 +1,17 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+.mensaje {
+    @include m.contenedor-sm;
+    margin: 10rem auto;
+    
+    &__heading{
+        background-color: lighten( v.$azul, 5%);
+        border-radius: 1.8rem;
+        padding: .5rem 0;
+    }
+}
+
+.mensaje__texto {
+    font-size: 2rem;
+    text-align: center;
+}
