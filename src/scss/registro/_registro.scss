@@ -43,7 +43,6 @@
 .registro{
     background-color: v.$gris-claro;
     padding: 3rem;
-    border-radius: 3rem ;
     @include m.tablet {
             flex: 0 0 35%;
             position: -webkit-sticky;

@@ -7,7 +7,7 @@
         @include m.contenedor;
         @include m.grid(1, 3rem);
 
-        @include m.tablet {
+        @include m.desktop {
             @include m.grid(3,3rem);
             align-items: flex-start;
         }
@@ -24,8 +24,14 @@
     @include m.card;
     &:nth-child(2) {
         order: -1;
-        @include m.tablet {
+        @include m.desktop {
             order: unset;
+        }
+    }
+    &:nth-child(3){
+        order: -1;
+        @include m.desktop {
+        order: unset;
         }
     }
     &__lista{

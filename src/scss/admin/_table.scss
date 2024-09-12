@@ -12,6 +12,13 @@
     &__th{
         padding: 1rem;
         text-align: left;
+        &--dash{
+            padding: 1rem;
+            text-align: center;
+            @include m.tablet {
+                text-align: center;
+            }
+        }
     }
     &__tbody{
 
@@ -19,6 +26,12 @@
     &__tr{
         &:nth-child(even){
             background-color: v.$gris-claro;
+        }
+        &--dash{
+            border-radius: 1.8rem;
+            &:nth-child(even){
+            background-color: rgba(51, 51, 51, 0.1); 
+        }
         }
     }
     &__td{
@@ -30,6 +43,9 @@
             justify-content: flex-end;
             gap: 2rem;
             align-items: center;
+        }
+        &--dash{
+            text-align: center;
         }
 
     }

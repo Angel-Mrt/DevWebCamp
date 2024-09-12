@@ -1,4 +1,4 @@
-<aside class="dashboard__sidebar">
+<aside class="dashboard__sidebar" id="sidebar">
     <nav class="dashboard__menu">
         <a href="/admin/dashboard" class="dashboard__enlace <?php echo pagina_actual('/dashboard') ? 'dashboard__enlace--actual' : ''; ?>">
             <i class="fa-solid fa-house dashboard__icono"></i>

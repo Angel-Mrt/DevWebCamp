@@ -68,9 +68,12 @@
         margin: 3rem 0 0 0;
     }
     &__precio{
-        margin: 3rem 0 0 0;
+        
         font-weight: v.$black;
         font-size: 4rem;
+        @include m.tablet {
+            margin: 3rem 0 0 0;
+        }
     }
     &__enlace-contenedor{
         margin-top: 5rem;

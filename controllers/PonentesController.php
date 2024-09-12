@@ -12,6 +12,10 @@ class PonentesController
 
     public static function index(Router $router)
     {
+
+        if (!is_admin()) {
+            header('Location: /login');
+        }
         $paginacion_actual = $_GET['page'];
         $paginacion_actual = filter_var($paginacion_actual, FILTER_VALIDATE_INT);
 
@@ -27,9 +31,7 @@ class PonentesController
             header('Location: /admin/ponentes?page=1');
         }
         $ponentes = Ponente::paginar($registros_por_pagina, $paginacion->offset());
-        if (!is_admin()) {
-            header('Location: /login');
-        }
+        
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes / Conferencistas',
             'ponentes' => $ponentes,

@@ -137,9 +137,9 @@ class ActiveRecord
     // Obtener Registros con cierta cantidad
     public static function get($limite)
     {
-        $query = "SELECT * FROM " . static::$tabla . " LIMIT {$limite} ORDER BY id DESC";
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT {$limite}";
         $resultado = self::consultarSQL($query);
-        return array_shift($resultado);
+        return ($resultado);
     }
 
     // Paginar  los Registros
@@ -157,10 +157,24 @@ class ActiveRecord
         $resultado = self::consultarSQL($query);
         return array_shift($resultado);
     }
+    // Busqueda Where con Columna de todos los resultados que coicidan con la condicion
+    public static function whereAll($columna, $valor)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}'";
+        $resultado = self::consultarSQL($query);
+        return ($resultado);
+    }
 
     //Retornar los Registros por un orden
     public static function ordenar($columna, $orden){
         $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna} {$orden} ";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+    //retornar por orden y con un limite
+    public static function ordenarLimite($columna, $orden, $limite)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna} {$orden}  LIMIT {$limite}";
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
@@ -186,6 +200,22 @@ class ActiveRecord
         $query = "SELECT COUNT(*) FROM " . static::$tabla;
         if($columna){
             $query .= " WHERE {$columna} = {$valor}";
+        }
+        $resultado = self::$db->query($query);
+        $total = $resultado->fetch_array();
+        return array_shift($total);
+    }
+
+    //Total de registros con un Array Where
+    public static function totalArray($array = [])
+    {
+        $query = "SELECT COUNT(*) FROM " . static::$tabla . " WHERE";
+        foreach ($array as $key => $value) {
+            if ($key == array_key_last($array)) {
+                $query .= " {$key} = '{$value}'";
+            } else {
+                $query .= " {$key} = '{$value}' AND";
+            }
         }
         $resultado = self::$db->query($query);
         $total = $resultado->fetch_array();

@@ -44,6 +44,7 @@
         font-size: 1.8rem;
         color: rgba(v.$negro, .8);
     }
+
     &__input,
     &__select {
         padding: 1rem;
@@ -51,6 +52,7 @@
         border-radius: .5rem;
         &--file{
             border: none;
+            width: 100%;
         }
         &--sociales{
             @extend .formulario__input;
