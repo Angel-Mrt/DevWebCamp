@@ -54,7 +54,7 @@
 </main>
 
 
-<script src="https://www.paypal.com/sdk/js?client-id=AaJZVQNQBHQNXubaSdkYnUGOpRSzu0C1ieOx_Q5HyolHq10c6A0AK2JPnoeAd5VAq1LIS3pU1LwHhRAc&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=<?php echo $_ENV['TOKEN_PAYPAL']; ?>&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
 <script>
     function initPayPalButton() {
         paypal.Buttons({
@@ -101,7 +101,7 @@
                 console.log(err);
             }
         }).render('#paypal-button-container');
-            // Boton Virtual
+        // Boton Virtual
         paypal.Buttons({
             style: {
                 shape: 'rect',
