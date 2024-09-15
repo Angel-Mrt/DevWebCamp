@@ -32,7 +32,7 @@
 
         <div class="bloque">
             <h3 class="bloque__heading">Ingresos</h3>
-            <p class="bloque__texto--leyenda">Monto Acumulado Hasta Ahora (USD)</p>
+            <p class="bloque__texto--leyenda">Monto Acumulado Hasta El Momento (USD)</p>
             <div class="bloque__texto" data-aos="flip-right" data-aos-offset="-500">
                 <p class="bloque__texto--cantidad">$ <?php echo $ingresos; ?></p>
             </div>
