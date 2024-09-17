@@ -23,10 +23,10 @@ class DashboardController {
         }
 
         //Calcular los ingresos
-        $virtales = Registro::total('paquete_id', 2);
+        $virtuales = Registro::total('paquete_id', 2);
         $presenciales = Registro::total('paquete_id', 1);
 
-        $ingresos = ($virtales * 46.41) + ($presenciales *  189.54);
+        $ingresos = ($virtuales * 46.41) + ($presenciales *  189.54);
 
         //Obtener Eventos con mas y menos lugares disponibles
         $menos_disponibles = Evento::ordenarLimite('disponibles', 'ASC', 5);

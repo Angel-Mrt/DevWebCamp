@@ -26,12 +26,12 @@ class PonentesController
         $registros_por_pagina = 5;
         $total = Ponente::total();
         $paginacion = new Paginacion($paginacion_actual, $registros_por_pagina, $total);
-        
-        if($paginacion->total_paginas() < $paginacion_actual){
+
+        if ($paginacion->total_paginas() < $paginacion_actual) {
             header('Location: /admin/ponentes?page=1');
         }
         $ponentes = Ponente::paginar($registros_por_pagina, $paginacion->offset());
-        
+
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes / Conferencistas',
             'ponentes' => $ponentes,
@@ -83,7 +83,7 @@ class PonentesController
                 // Guardar en la BD
                 $resultado = $ponente->guardar();
                 if ($resultado) {
-                    header('Location: /admin/ponentes');
+                    header('Location: /admin/ponentes?page=1&resultado=1');
                 }
             }
         }
@@ -144,13 +144,25 @@ class PonentesController
             $alertas = $ponente->validar();
             if (empty($alertas)) {
                 if (isset($nombre_imagen)) {
+                    // Elimina la imagen anterior si existe
+                    if (!empty($ponente->imagen_actual)) {
+                        $ruta_imagen_anterior_png = $carpeta_imagenes . '/' . $ponente->imagen_actual . ".png";
+                        $ruta_imagen_anterior_webp = $carpeta_imagenes . '/' . $ponente->imagen_actual . ".webp";
+
+                        if (file_exists($ruta_imagen_anterior_png)) {
+                            unlink($ruta_imagen_anterior_png);
+                        }
+                        if (file_exists($ruta_imagen_anterior_webp)) {
+                            unlink($ruta_imagen_anterior_webp);
+                        }
+                    }
                     //Guardar Imagenes 
                     $imagen_png->save($carpeta_imagenes . '/' . $nombre_imagen . ".png");
                     $imagen_webp->save($carpeta_imagenes . '/' . $nombre_imagen . ".webp");
                 }
                 $resultado = $ponente->guardar();
                 if ($resultado) {
-                    header('Location: /admin/ponentes');
+                    header('Location: /admin/ponentes?page=1&resultado=2');
                 }
             }
         }
@@ -173,6 +185,7 @@ class PonentesController
             if (!is_admin()) {
                 header('Location: /login');
             }
+            $carpeta_imagenes =  '../public/img/speakers';
             $id = $_POST['id'];
             $ponente = Ponente::find($id);
             if (!isset($ponente)) {
@@ -180,7 +193,18 @@ class PonentesController
             }
             $resultado = $ponente->eliminar();
             if ($resultado) {
-                header('Location: /admin/ponentes');
+                header('Location: /admin/ponentes?page=1&resultado=3');
+                $ruta_imagen_png = $carpeta_imagenes . '/' . $ponente->imagen . ".png";
+                $ruta_imagen_webp = $carpeta_imagenes . '/' . $ponente->imagen . ".webp";
+
+                if (file_exists($ruta_imagen_png)) {
+                    unlink($ruta_imagen_png);
+                }
+                if (file_exists($ruta_imagen_webp)) {
+                    unlink($ruta_imagen_webp);
+                }
+            } else {
+                header('Location: /admin/ponentes?page=1&resultado=4');
             }
         }
     }

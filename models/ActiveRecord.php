@@ -2,6 +2,8 @@
 
 namespace Model;
 
+use mysqli_sql_exception;
+
 #[\AllowDynamicProperties]
 
 class ActiveRecord
@@ -272,7 +274,18 @@ class ActiveRecord
     public function eliminar()
     {
         $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
-        $resultado = self::$db->query($query);
-        return $resultado;
+        try {
+            // Ejecuta la consulta
+            $resultado = self::$db->query($query);
+            // Verifica si la eliminación fue exitosa
+            if (self::$db->affected_rows > 0) {
+                return $resultado;
+            } else {
+                return false;
+            }
+        } catch (mysqli_sql_exception $e) {
+            // Captura y maneja la excepción de SQL
+            return false;
+        }
     }
 }

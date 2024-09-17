@@ -5,7 +5,15 @@
         Añadir Evento
     </a>
 </div>
-
+<?php
+// Asegúrate de que la variable $resultado esté definida y tenga un valor predeterminado
+$resultado = $_GET['resultado'] ?? null;
+if (!empty($resultado)) {
+    $datos = mostrarNotificacion(intval($resultado));
+    if ($datos) { ?>
+        <p class="alerta alerta-dash alerta__<?php echo $datos['tipo']; ?>"> <?php echo $datos['mensaje']; ?> </p>
+<?php }
+}  ?>
 <div class="dashboard__contenedor">
     <?php if (!empty($eventos)) { ?>
         <table class="table">

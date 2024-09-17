@@ -41,25 +41,35 @@ function is_admin(): bool
 function mostrarNotificacion($resultado)
 {
     $mensaje = '';
+    $tipo = '';
 
     switch ($resultado) {
         case 1:
             $mensaje = '¡¡Creado Correctamente!!';
+            $tipo = 'exito';
             break;
         case 2:
             $mensaje = '¡¡Actualizado Correctamente!!';
+            $tipo = 'exito';
             break;
         case 3:
             $mensaje = '¡¡Eliminado Correctamente!!';
+            $tipo = 'exito';
             break;
         case 4:
             $mensaje = '¡¡No Se Pudo Eliminar!!';
+            $tipo = 'error';
             break;
         default:
-            $mensaje = false;
+            $mensaje = 'Resultado desconocido';
+            $tipo = 'info'; // Puedes usar un tipo genérico como 'info' si el resultado no es reconocido
             break;
     }
-    return $mensaje;
+    return [
+        'mensaje' => $mensaje,
+        'tipo' => $tipo
+    ];
+
 }
 function aos_animacion(): void
 {

@@ -1472,8 +1472,12 @@ h3 {
   font-weight: 900;
   margin: 1rem 0;
   font-size: 1.4rem;
-  max-width: 80rem;
+  width: 80rem;
   text-align: center;
+}
+.alerta-dash {
+  margin: 1rem 5rem;
+  width: auto;
 }
 .alerta__error {
   background-color: #ffc3c3;
@@ -1683,6 +1687,11 @@ h3 {
   padding: 2rem;
   border-radius: 0.8rem;
   overflow-x: scroll;
+}
+@media (min-width: 768px) {
+  .dashboard__contenedor, .dashboard__formulario {
+    overflow: hidden;
+  }
 }
 .dashboard__contenedor--regalos {
   margin: 0 10rem;

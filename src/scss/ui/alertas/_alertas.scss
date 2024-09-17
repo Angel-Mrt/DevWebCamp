@@ -7,15 +7,19 @@
     font-weight: 900;
     margin: 1rem 0;
     font-size: 1.4rem;
-    max-width: 80rem;
+    width: 80rem;
     text-align: center;
+    &-dash{
+        margin: 1rem 5rem;
+        width: auto;
+    }
 
     &__error{
         background-color: lighten( v.$rojo, 55%);
         border-left: .6rem solid v.$rojo;
         border-right: .6rem solid v.$rojo;
         border-radius: .8rem;
-        color: v.$rojo;
+        color:  v.$rojo;
 
     }
 
